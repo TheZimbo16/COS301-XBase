@@ -1,1 +1,5 @@
-# COS301-XBase
+# COS-301-XBase
+
+## Synopsis
+
+##Contributors
