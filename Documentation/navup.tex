@@ -1,8 +1,14 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
 
 \title{Architectural Requirements Specifications and Design}
-\author{Andrew le Roux \hfill [Student Number] \\ Cian Steenkamp \hfill [Student Number] \\ Darren Adams \hfill [Student Number] \\ Drew Langley \hfill [Student Number] \\ Martha Mohlala \hfill [Student Number] \\ Nsovo Baloyi \hfill [Student Number] \\ Rikard Schouwstra \hfill [Student Number]}
+\author{Andrew le Roux \hfill [Student Number] \\ Cian Steenkamp \hfill [Student Number] \\ Darren Adams \hfill [Student Number] \\ Drew Langley \hfill [Student Number] \\ Martha Mohlala \hfill [10353403] \\ Nsovo Baloyi \hfill [Student Number] \\ Rikard Schouwstra \hfill [Student Number]}
 \date{March 2017}
 \begin{document}
 \maketitle
@@ -24,6 +30,9 @@
         \subsubsection{Use Case Diagrams}
         \subsubsection{Other Diagrams}
         \subsubsection{Chosen Design Patterns}
+        \begin{itemize}
+        \item Composite design pattern
+        \end{itemize}
     \subsection{Notifications}
         \subsubsection{Deployment Diagram}
         \subsubsection{Class Diagram}
@@ -43,5 +52,34 @@
         \subsubsection{Other Diagrams}
         \subsubsection{Chosen Design Patterns}
 \section{Technology Choices}
+\subsection{Application Server}
 
+\subsection{Database}
+\begin{itemize}
+	\item \textbf{PostgreSQL} \\
+	PostgreSQL is a object-relational database. 
+
+	\item \textbf{PostGIS} \\
+	PostGIS is a spatial database extender for PostgreSQL. It adds support for geographic objects allowing location queries to be run in SQL.
+\end{itemize}
+
+\subsection{Persistence API}
+\subsection{Mobile application Frameworks}
+	
+	\begin{itemize}	
+	
+	\item \textbf{Ionic Framework}\\ It is hybrid mobile app development framework build on top of AngularJS and Apache Cordova. Ionic provides tools and services for developing hybrid mobile apps using web technologies like CSS, HTML5 and SASS. Since the Navup app is going to be designed for both IOS and Android smartphones, Ionic is the best fit framework to develop the app. \\
+	It uses MVC (Model, View and Controller) architectural pattern which separates logical concerns.
+	
+	
+	\item {Other Frameworks Considered}\\ 
+	\textbf{PhoneGap}
+	\end{itemize}
+	\subsection{Web application framework}
+	\begin{itemize}
+	\item HTML5
+	\item CSS
+	\item Bootstrap
+	\item Javascript
+\end{itemize}
 \end{document}
