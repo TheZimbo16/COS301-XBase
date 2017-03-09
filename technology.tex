@@ -1,0 +1,36 @@
+\subsection{Application Server}
+The application server is the component responsible for hosting the business process layer of the NavUP system. It needs to be able to satisfy quality requirements mentioned in System Software Attributes section. The NavUP system will follow a layered reference architecture approached as well as implement a Services-Oriented Architecture(SOA) approach. Together they allow the system to be flexible, easily maintainable and easily deployable. \\[0.2cm]
+JavaEE (Java Platform, Enterprise Edition) architecture is is one of the most widely used
+reference architectures for large, interactive enterprise systems.JavaEE supports, amongst other things, standard access channels for enterprise systems, a solid process execution environment, a range of standard integration channels, hot deployment and clustering. The main aim is to provide a reference architecture for scalable, reliable, deploy-ability, flexibility and modularity. \\[0.2cm]
+The application server will run on Tomcat 8 which is an open-source Java Servlet Container which offers great support for the JavaEE. It allows for easy deployment and modularity. Using the Web Services API it also interacts well with other technologies. 
+\subsection{Database}
+The system has strict scalability, reliability and flexibility quality requirements to satisfy. Many users will be connected to the system at the same time and the DBMS (Database Management System) needs to be reliable. It is important that a DBMS is chosen for which both the scalability and reliability requirements can be met. For this reason the system will use \textit{PostgreSQL} which is a reliable object-relational database. \\[0.2cm]
+The NavUP system also needs to have a database to satisfy the requirements of the GIS subsystem for this purpose \textit{PostGIS} will be used. It is a spatial database extender for\textit{PostgresSQL}, so it adds support for geographical objects.  \\[0.2cm]
+Both \textit{PostgreSQL} and \textit{PostGIS} have great JavaEE support through the use of a persistence API. They also have great community support.
+\subsection{Persistence API}
+The persistence API is middleware that provides a layer of abstraction between the  persistence provider (database) and the application. It is separated from the database technology as well as the  database selected for the system. Java EE offers JPA as its persistence API. JPA is considered as a standard approach for Object to Relational Mapping (ORM) in Java.\\ [0.2cm]
+JavaEE again is a great choice to carry out the requirements of this system.
+
+\subsection{Web Services Framework}
+The web services framework is a wrapping layer of the application services (business processes) layer making the system services available over the Internet. This allows the application server to be separated from user-interface technologies.The web services framework should be based on a public standard and open-source implementation should be available.\\[0.2cm]
+For the web services framework the project will use the Jersey implementation of the JAX-RS provided by JavaEE. A RESTful approach will be used.
+\subsection{Mobile Application Frameworks}	
+The system does not have any particular mobile OS requirement, for this purpose a hybrid mobile application framework will be used to build the mobile interface part of the system.\\[0.2cm]
+ \textit{Ionic 2} is hybrid mobile application development framework build on top of Angular and Apache Cordova. \textit{Ionic 2} provides tools and services for developing hybrid mobile applications using web technologies like CSS, HTML5 and SASS. Since the NavUP system is going to be designed for both iOS and Android smartphones, \textit{Ionic 2} is the best fit framework to develop the mobile application. \\[0.2cm]
+	It uses MVC (Model, View and Controller) architectural pattern which separates logical concerns.\\[0.2cm]
+	\textbf{Other Frameworks Considered}\\ 
+	\begin{enumerate}
+		\item \textbf{PhoneGap} : Very old and outdated compared to Ionic
+		\item \textbf{NativeScript} : still new and has less community support
+	\end{enumerate}
+
+\subsection{Web Application Framework}
+ The web application architecture will be built using\textit{Angular}. \textit{Angular} is a rewrite of \textit{AngularJS} which is based on the MVVM and MVC architectures. \\
+	
+ \textbf{Other Frameworks Considered}\\ 
+	\begin{enumerate}
+		\item EmberJS 
+		\item ReactJS
+	\end{enumerate}
+
+	
