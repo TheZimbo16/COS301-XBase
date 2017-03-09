@@ -6,8 +6,13 @@
 
 
 \title{ Architectural Requirements Specifications and Design \\[0.5cm] \includegraphics[width=6cm]{front-page}}
+
 \author{Andrew le Roux \hfill [Student Number] \\ Cian Steenkamp \hfill 15095682 \\ Darren Adams \hfill 14256232 \\ Drew Langley \hfill 11039753 \\ Martha Mohlala \hfill [Student Number] \\ Nsovo Baloyi \hfill 12163262 \\ Rikard Schouwstra \hfill [Student Number]}
 \date{10 March 2017}
+
+\author{Andrew le Roux \hfill 15311644 \\ Cian Steenkamp \hfill 15095682 \\ Darren Adams \hfill 14256232 \\ Drew Langley \hfill [Student Number] \\ Martha Mohlala \hfill [Student Number] \\ Nsovo Baloyi \hfill 12163262 \\ Rikard Schouwstra \hfill [Student Number]}
+\date{March 2017}
+
 \begin{document}
 \maketitle
 \pagebreak
@@ -47,49 +52,49 @@
 \section{System Software Attributes}
 
     \subsection{Reliability}
-        
+
         \begin{description}
-        
+
         \item[$\bullet$] Any information that is stored on the database must remain correct when being transferred to the user interface.
         \item[$\bullet$] The services offered by the system should be available to users except for when the system is undergoing maintenance.
         \item[$\bullet$] The system should reply to user requests in the shortest time interval possible.
         \item[$\bullet$] The system must be fault tolerant, it needs to maintain a certain level of performance and offer other services that are not affected by this fault to the users.
         \item[$\bullet$] In the event of a fault the system must be able to recover within the shortest time period possible and recover any data that may have been lost.
         \item[$\bullet$] The system should be able to respond appropriately if it receives bad input data from the user.
-        
+
         \end{description}
-        
+
     \subsection{Scalability}
-    
+
         \begin{description}
-    
-        \item[$\bullet$] The system must be able to cater for increases in the work load, for example large number of users or activities at any given time, without impacting the performance of the system. 
+
+        \item[$\bullet$] The system must be able to cater for increases in the work load, for example large number of users or activities at any given time, without impacting the performance of the system.
         \item[$\bullet$] If the system does not cater for increases in workload it should at least provide the ability to be readily enlarged.
-        
+
         \end{description}
-    
+
     \subsection{Maintainability}
-    
+
         \begin{description}
-    
+
         \item[$\bullet$] The system must be designed in a modular fashion that provides high cohesion and loose coupling, this will allow parts of the system to be easily maintained without affecting the rest of the system.
         \item[$\bullet$]Maintenance should be able to be carried out by different maintenance teams, therefore the system must be easy to learn and understand.
-        
+
         \end{description}
-    
+
     \subsection{Integrability}
-    
+
         \begin{description}
-        
+
         \item[$\bullet$] Since we are following a modular design, components of the system that are separately developed should work correctly together.
         \item[$\bullet$] Follow coding standards specified by the client to allow for easy integration and employ continuous integration in our design process.
-        
+
         \end{description}
-    
+
     \subsection{Usability}
-    
+
         \begin{description}
-        
+
         \item[$\bullet$] The system must be easy to learn.
         \item[$\bullet$]System must cater for user mistakes, by providing the user with the undo or roll back options.
         \item[$\bullet$]The user interface must be easy to use and must be intuitive.
@@ -97,19 +102,19 @@
         \item[$\bullet$]Incorporate widgets and icons that the target users may be familiar with.
         \item[$\bullet$]The user manual should have a detailed description of the system.
         \item[$\bullet$]A help option must be provided to the users.
-        
+
         \end{description}
-    
+
     \subsection{Interoperability}
-    
+
         \begin{description}
-        
+
         \item[$\bullet$]The system must be able to communicate with the University of Pretoria WiFi system, because the WiFi  access points will be used for the navigation.
-        
+
         \end{description}
 \newpage
 \section{Modules}
-	
+
 	\subsection{Overview of System}
 	\input{overview}
 	\newpage
@@ -127,19 +132,19 @@
   			\centering
     			\includegraphics[width=8cm]{ActivityDiagram-LogIn}
 		\end{figure}
-		
+
 		\begin{figure}[H]
   			\caption{Activity Diagram - Register}
   			\centering
     			\includegraphics[height=15cm]{ActivityDiagram-Register}
 		\end{figure}
-		
+
 		\begin{figure}[H]
   			\caption{Activity Diagram - Administrators}
   			\centering
     			\includegraphics[height=15cm]{ActivityDiagram-Admin}
 		\end{figure}
-		
+
 		\newpage
         \subsubsection{State Diagram}
         	\begin{figure}[H]
@@ -163,16 +168,63 @@
     			\includegraphics[width=\textwidth]{NotificationUseCases}
 		\end{figure}
         \subsubsection{Chosen Design Patterns}
-        \newpage
+
+        \subsubsection{Chosen Design Patterns}
+
+        We have chosen to incorporate the Factory Design Pattern in our design of the notifications module for NavUP. Due to the fact that notifications are generated and then sent to the respective mediums, it makes sense to implement the above pattern for the following reasons:
+		\begin{description}
+
+		\item[$\bullet$]Extendibility : Should NavUP need to facilitate a greater range of mediums to communicate system updates, and entire re-code of the module would not be necessary.
+
+		\item[$\bullet$]Ease-of-use : The notifications management interface need not know what class of the object it is creating, instead leaving it up to the respective child classes to decide. This abstraction makes life easier for programmers to use the module.
+
+		\item[$\bullet$]Modularity : Having the factory become an interface for sending through various mediums, creates a somewhat modular approach within the subsystem.
+		\end{description}
+    \newpage
+
     \subsection{Navigation}
         \subsubsection{Class Diagram}
+        \begin{figure}[H]
+        	\includegraphics[width=\textwidth]{Navigation_Class_Diagram}
+            \caption{Navigation Module Class Diagram}
+        \end{figure}
         \subsubsection{Use Case Diagrams}
+        \begin{figure}[H]
+        	\includegraphics[width=\textwidth]{Navigation_Use_Case_Diagram}
+            \caption{Navigation Module Use Case Diagram}
+        \end{figure}
         \subsubsection{Other Diagrams}
+
+        \begin{figure}[H]
+        	\includegraphics[width=\textwidth]{Navigation_Activity_Diagram}
+        	\caption{Navigation Module Activity Diagram}
+        \end{figure}
         \newpage
+
     \subsection{Points-of-interest}
+
         \subsubsection{Class Diagram}
-        \subsubsection{Use Case Diagrams}
+
+	  \begin{figure}[H]
+            \centering
+            \includegraphics[width = \textwidth, height = 15cm ]{new_points_of_interest_class_diagram}
+            \caption{Points of Interest Class Diagram}
+            \label{Points of Interest Class Diagram}
+        \end{figure}
+
+        \subsubsection{Use Case Diagram}
+
+	 \begin{figure}[H]
+            \centering
+            \includegraphics[width = \textwidth, height = 15cm ]{points_of_interest_use_case_diagram}
+            \caption{Points of Interest Use Case Diagram}
+            \label{Points of Interest Use Case Diagram}
+        \end{figure}
+
         \subsubsection{Chosen Design Patterns}
+
+	 For the Points of Interest Class Diagram the Factory and Facade design patterns are used. The Facade design pattern provides a unified interface to a set of interfaces in the Points of Interest subsystem. The Facade defines a higher-level interface for the Points of Interest that makes the subsystem easier to use. Thus it wraps a complicated subsystem with a simpler interface. The Factory design pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+
 \newpage
 \section{Technology Choices}
 \input{technology}
