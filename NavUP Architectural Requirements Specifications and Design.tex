@@ -117,10 +117,28 @@
         \subsubsection{Chosen Design Patterns}
     \subsection{Notifications}
         \subsubsection{Class Diagram}
-    			\includegraphics[width=0.5\textwidth]{Notifications_Class_Diagram}
+		\begin{figure}[H]
+    			\includegraphics[width=\textwidth]{Notifications_Class_Diagram}
+			\caption{Notifications Module Class Diagram}
+		\end{figure}
         \subsubsection{Use Case Diagrams}
-    			\includegraphics[width=0.5\textwidth]{NotificationUseCases}	
+			\begin{figure}[H]
+    			\includegraphics[width=\textwidth]{NotificationUseCases}
+			\caption{Notifications Module Use-Case Diagram}
+			\end{figure}
         \subsubsection{Chosen Design Patterns}
+		\begin{description}
+		We have chosen to incorporate the Factory Design Pattern in our design of the notifications module for NavUP.
+		
+		Due to the fact that notifications are generated and then sent to the respective mediums, it makes sense to implement the above pattern for the following reasons:
+		
+		\item[$\bullet$]Extendability : Should NavUP need to facilitate a greater range of mediums to communicate system updates, and entire re-code of the module would not be necessary.
+		
+		\item[$\bullet$]Ease-of-use : The notifications management interface need not know what class of the object it is creating, instead leaving it up to the respective child classes to decide. This abstraction makes life easier for programmers to use the module.
+		
+		\item[$\bullet$]Modularity : Having the factory become an interface for sending through various mediums, creates a somewhat modular approach within the subsystem.		
+		\end{description}
+		
     \subsection{Navigation}
         \subsubsection{Class Diagram}
         \begin{figure}[H]
